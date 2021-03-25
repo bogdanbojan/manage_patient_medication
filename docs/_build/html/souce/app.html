@@ -1,0 +1,442 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>app module &#8212; Patient Medication Mangemenet API 0.0.1 documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-app">
+<span id="app-module"></span><h1>app module<a class="headerlink" href="#module-app" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="patient-medication-management">
+<h2>Patient medication management<a class="headerlink" href="#patient-medication-management" title="Permalink to this headline">¶</a></h2>
+<p>RESTful API that manages patients medication using Flask-SQLAlchemy and PostgreSQL.</p>
+<dl class="py class">
+<dt id="app.GenderEnum">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">app.</span></code><code class="sig-name descname"><span class="pre">GenderEnum</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.GenderEnum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
+<p>An enumeration.</p>
+<dl class="py attribute">
+<dt id="app.GenderEnum.female">
+<code class="sig-name descname"><span class="pre">female</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'female'</span></em><a class="headerlink" href="#app.GenderEnum.female" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="app.GenderEnum.male">
+<code class="sig-name descname"><span class="pre">male</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'male'</span></em><a class="headerlink" href="#app.GenderEnum.male" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="app.GenderEnum.unknown">
+<code class="sig-name descname"><span class="pre">unknown</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'unknown'</span></em><a class="headerlink" href="#app.GenderEnum.unknown" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="app.Medication">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">app.</span></code><code class="sig-name descname"><span class="pre">Medication</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.Medication" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">sqlalchemy.ext.declarative.api.Model</span></code></p>
+<dl class="py attribute">
+<dt id="app.Medication.creation_date">
+<code class="sig-name descname"><span class="pre">creation_date</span></code><a class="headerlink" href="#app.Medication.creation_date" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="app.Medication.description">
+<code class="sig-name descname"><span class="pre">description</span></code><a class="headerlink" href="#app.Medication.description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="app.Medication.dosage">
+<code class="sig-name descname"><span class="pre">dosage</span></code><a class="headerlink" href="#app.Medication.dosage" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="app.Medication.medication_id">
+<code class="sig-name descname"><span class="pre">medication_id</span></code><a class="headerlink" href="#app.Medication.medication_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="app.Medication.modify_date">
+<code class="sig-name descname"><span class="pre">modify_date</span></code><a class="headerlink" href="#app.Medication.modify_date" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="app.Medication.patient_id">
+<code class="sig-name descname"><span class="pre">patient_id</span></code><a class="headerlink" href="#app.Medication.patient_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="app.Medication.time">
+<code class="sig-name descname"><span class="pre">time</span></code><a class="headerlink" href="#app.Medication.time" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="app.Medication.unit">
+<code class="sig-name descname"><span class="pre">unit</span></code><a class="headerlink" href="#app.Medication.unit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="app.Patient">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">app.</span></code><code class="sig-name descname"><span class="pre">Patient</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.Patient" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">sqlalchemy.ext.declarative.api.Model</span></code></p>
+<dl class="py attribute">
+<dt id="app.Patient.date_of_birth">
+<code class="sig-name descname"><span class="pre">date_of_birth</span></code><a class="headerlink" href="#app.Patient.date_of_birth" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="app.Patient.description">
+<code class="sig-name descname"><span class="pre">description</span></code><a class="headerlink" href="#app.Patient.description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="app.Patient.first_name">
+<code class="sig-name descname"><span class="pre">first_name</span></code><a class="headerlink" href="#app.Patient.first_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="app.Patient.gender">
+<code class="sig-name descname"><span class="pre">gender</span></code><a class="headerlink" href="#app.Patient.gender" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="app.Patient.last_name">
+<code class="sig-name descname"><span class="pre">last_name</span></code><a class="headerlink" href="#app.Patient.last_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="app.Patient.medications">
+<code class="sig-name descname"><span class="pre">medications</span></code><a class="headerlink" href="#app.Patient.medications" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="app.Patient.modify_date">
+<code class="sig-name descname"><span class="pre">modify_date</span></code><a class="headerlink" href="#app.Patient.modify_date" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="app.Patient.patient_id">
+<code class="sig-name descname"><span class="pre">patient_id</span></code><a class="headerlink" href="#app.Patient.patient_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="app.UnitEnum">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">app.</span></code><code class="sig-name descname"><span class="pre">UnitEnum</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.UnitEnum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
+<p>An enumeration.</p>
+<dl class="py attribute">
+<dt id="app.UnitEnum.cubic_centimetre">
+<code class="sig-name descname"><span class="pre">cubic_centimetre</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'cc'</span></em><a class="headerlink" href="#app.UnitEnum.cubic_centimetre" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="app.UnitEnum.gram">
+<code class="sig-name descname"><span class="pre">gram</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'g'</span></em><a class="headerlink" href="#app.UnitEnum.gram" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="app.UnitEnum.kilogram">
+<code class="sig-name descname"><span class="pre">kilogram</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'kg'</span></em><a class="headerlink" href="#app.UnitEnum.kilogram" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="app.UnitEnum.litre">
+<code class="sig-name descname"><span class="pre">litre</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'l'</span></em><a class="headerlink" href="#app.UnitEnum.litre" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="app.UnitEnum.microgram">
+<code class="sig-name descname"><span class="pre">microgram</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'mcg'</span></em><a class="headerlink" href="#app.UnitEnum.microgram" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="app.UnitEnum.milligram">
+<code class="sig-name descname"><span class="pre">milligram</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'mg'</span></em><a class="headerlink" href="#app.UnitEnum.milligram" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="app.UnitEnum.millilitre">
+<code class="sig-name descname"><span class="pre">millilitre</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'ml'</span></em><a class="headerlink" href="#app.UnitEnum.millilitre" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="app.UnitEnum.millimole">
+<code class="sig-name descname"><span class="pre">millimole</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'mmol'</span></em><a class="headerlink" href="#app.UnitEnum.millimole" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="app.UnitEnum.mole">
+<code class="sig-name descname"><span class="pre">mole</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'mol'</span></em><a class="headerlink" href="#app.UnitEnum.mole" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="app.add_medication">
+<code class="sig-prename descclassname"><span class="pre">app.</span></code><code class="sig-name descname"><span class="pre">add_medication</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">patient_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.add_medication" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to add a new medication to the database. Method = POST</p>
+<p><strong>Json request parameters</strong>:
+* description (string)
+* dosage (int)
+* unit (enum)
+* time (‘HH:MM:SS’)
+* creationDate (‘YYYY-MM-DD’)
+* modifyDate (will be automated)</p>
+<p>! unit is an enum type: <code class="docutils literal notranslate"><span class="pre">kg,</span> <span class="pre">g,</span> <span class="pre">mg,mcg,</span> <span class="pre">l,</span> <span class="pre">ml,</span> <span class="pre">cc,</span> <span class="pre">mol,</span> <span class="pre">mmol</span></code> arguments accepted.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>patient_id</strong> – ID of the patient that you want to add medicine to.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>if the medication is added- a <em>successful</em> message</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="app.add_patient">
+<code class="sig-prename descclassname"><span class="pre">app.</span></code><code class="sig-name descname"><span class="pre">add_patient</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app.add_patient" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to add a new patient to the database. Metod = POST</p>
+<p><strong>Json request parameters</strong>:
+* firstName (string)
+* lastName (string)
+* description (string)
+* gender (enum)
+* dateOfBirth (‘YYYY-MM-DD’)
+* modifyDate (will be automated)</p>
+<p>! gender is an enum type: <code class="docutils literal notranslate"><span class="pre">male,</span> <span class="pre">female</span> <span class="pre">or</span> <span class="pre">unknown</span></code> arguments accepted.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>if the patient is added- a <em>successful</em> message</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="app.delete_medication">
+<code class="sig-prename descclassname"><span class="pre">app.</span></code><code class="sig-name descname"><span class="pre">delete_medication</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">medication_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.delete_medication" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes a medication based on its ID. Method = DELETE</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>medication_id</strong> – The ID of the medication you want to delete.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>If the medication is deleted- a <em>successful</em> message.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="app.delete_patient">
+<code class="sig-prename descclassname"><span class="pre">app.</span></code><code class="sig-name descname"><span class="pre">delete_patient</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">patient_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.delete_patient" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes a patient based on his ID. Method = DELETE</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>patient_id</strong> – The ID of the patient you want to delete.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>If the patient is deleted- a <em>successful</em> message.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="app.get_medication">
+<code class="sig-prename descclassname"><span class="pre">app.</span></code><code class="sig-name descname"><span class="pre">get_medication</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">medication_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.get_medication" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return data about a specific medication.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>medication_id</strong> – The medications’ database ID.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A json object that contains the medications’ description, dosage and unit.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="app.get_medications">
+<code class="sig-prename descclassname"><span class="pre">app.</span></code><code class="sig-name descname"><span class="pre">get_medications</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app.get_medications" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns all the medications from the database.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>List containing the medications. It outputs medications’ description, dosage and unit.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="app.get_patient">
+<code class="sig-prename descclassname"><span class="pre">app.</span></code><code class="sig-name descname"><span class="pre">get_patient</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">patient_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.get_patient" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns data about a specific patient.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>patient_id</strong> – The patients’ database ID.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A json object that contains patient’s first name, last name and a short description.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="app.get_patients">
+<code class="sig-prename descclassname"><span class="pre">app.</span></code><code class="sig-name descname"><span class="pre">get_patients</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app.get_patients" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns all the patients from the database.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>List containing the patients. It outputs patients’ first name, last name and a short description.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="app.index">
+<code class="sig-prename descclassname"><span class="pre">app.</span></code><code class="sig-name descname"><span class="pre">index</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app.index" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="app.update_medication">
+<code class="sig-prename descclassname"><span class="pre">app.</span></code><code class="sig-name descname"><span class="pre">update_medication</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">medication_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.update_medication" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates data about a specific medication. Method = PUT</p>
+<blockquote>
+<div><p><strong>Json request parameters</strong>:</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>description (string)</p></li>
+<li><p>dosage (int)</p></li>
+<li><p>unit (enum)</p></li>
+<li><p>time (‘HH:MM:SS’)</p></li>
+<li><p>creationDate (‘YYYY-MM-DD’)</p></li>
+<li><p>modifyDate (will be automated)</p></li>
+</ul>
+<p>! unit is an enum type: <code class="docutils literal notranslate"><span class="pre">kg,</span> <span class="pre">g,</span> <span class="pre">mg,mcg,</span> <span class="pre">l,</span> <span class="pre">ml,</span> <span class="pre">cc,</span> <span class="pre">mol,</span> <span class="pre">mmol</span></code> arguments accepted.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>medication_id</strong> – The ID of the medication you want to update.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>If the medication is updated- a <em>successful</em> message.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="app.update_patient">
+<code class="sig-prename descclassname"><span class="pre">app.</span></code><code class="sig-name descname"><span class="pre">update_patient</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">patient_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.update_patient" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates data about a specific patient. Method = PUT</p>
+<p><strong>Available Json request parameters</strong>:
+* firstName (string)
+* lastName (string)
+* description (string)
+* gender (enum)
+* dateOfBirth (‘YYYY-MM-DD’)
+* modifyDate (will be automated)</p>
+<p>! gender is an enum type: <code class="docutils literal notranslate"><span class="pre">male,</span> <span class="pre">female</span> <span class="pre">or</span> <span class="pre">unknown</span></code> arguments accepted.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>patient_id</strong> – The ID of the patient you want to delete.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>If the patient is updated- a <em>successful</em> message.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Patient Medication Mangemenet API</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, Bogdan Bojan.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/souce/app.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
