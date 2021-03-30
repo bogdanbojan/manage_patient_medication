@@ -1,11 +1,9 @@
 """Initialize Flask app."""
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-from ddtrace import patch_all
 
 
 db = SQLAlchemy()
-# patch_all()
 
 
 def create_app():
@@ -16,13 +14,10 @@ def create_app():
     db.init_app(app)
 
     with app.app_context():
-        from . import routes  # Import routes
+        from . import routes
 
-        db.create_all()  # Create database tables for our data models
+        db.create_all()
 
         return app
 
 
-# def create_app(config_object):
-#     app = Flask(__name__.split('.')[0])
-#     app.config.from_object(config_object)
